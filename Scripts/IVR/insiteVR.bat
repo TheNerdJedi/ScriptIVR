@@ -18,7 +18,7 @@ echo This will now run 'meshlabserver' on your file
 
 rem Switch to the InsiteVR program's working directory
 C:
-cd C:\Program Files\InsiteVR_Process
+cd C:\InsiteVR_Process
 
 
 :: Process a single mesh variable
@@ -115,7 +115,7 @@ rem -------------------------------------------------------
 :: Run the "for" loop from inside the input folder
 cd %inputFolder%
 
-for %%I in (*.%inputMeshFormat%) do (%meshlabserverPath% -i %%I -o ..\%outputFolder%\%%~nI.%outputMeshFormat% %outputMeshOptions% %outputMeshOptions%)
+for %%I in (*.%inputMeshFormat%) do (%meshlabserverPath% -i %%I -o ../%outputFolder%\%%~nI.%outputMeshFormat% %outputMeshOptions% %outputMeshOptions%)
 
 :: Go back down a directory
 cd ..
@@ -178,18 +178,18 @@ echo ------------------------------------------------------
 
 rem Switch to the InsiteVR program's working directory
 C:
-cd C:\Program Files\InsiteVR_Process\output
+cd C:\InsiteVR_Process\output
 
 echo ------------------------------------------------------------------
 echo File will now be exported as .obj with 'Material Groups' selected
 :: pause 
-FOR %%f IN (*.obj) DO "c:\program files\blender foundation\blender\blender.exe" -b --python "c:\Program Files\InsiteVR_Process\blender_scripts\obj.py" -- "%%f"
+FOR %%f IN (*.obj) DO "c:\program files\blender foundation\blender\blender.exe" -b --python "c:\InsiteVR_Process\blender_scripts\obj.py" -- "%%f"
 
 echo ------------------------------------------------------------------
 echo File will be now be exported as .fbx 
 :: pause 
 echo ------------------------------------------------------------------
-FOR %%f IN (*.obj) DO "c:\program files\blender foundation\blender\blender.exe" -b --python "c:\Program Files\InsiteVR_Process\blender_scripts\fbx.py" -- "%%f"
+FOR %%f IN (*.obj) DO "c:\program files\blender foundation\blender\blender.exe" -b --python "c:\InsiteVR_Process\blender_scripts\fbx.py" -- "%%f"
 :: pause
 
 
